@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "enemy.h"
 
-
+void mainGamePage();
 
 void setupMenuPage(){
 	iShowImage(0, 0, 900, 600, menu);
@@ -92,6 +92,7 @@ void menuButtonClickingFeature(int mx, int my){
 			//When the Back Button is clicked then it will load the previous page or the main menu.
 			if( (mx >= 750 && mx <= 850) && (my >= 20 && my <= 120) ){
 				loadImageMenu = 0;
+				gameRun = false;
 			}
 		}
 }
@@ -128,39 +129,14 @@ void menuButtonHoverFeature(int mx, int my){
 }
 
 
-void changePagesInMenu(){
-	switch(loadImageMenu){
+void changePagesInMenu()
+{
+	switch(loadImageMenu)
+	{
 			//When it is 1, the new game page is opened 
 			case 1:
-				iShowImage(0, 0, 900, 600, newgamePage);
-				iShowImage(780,8,100, 30,backButton);
-				iShowImage(flightRedX, flightRedY, 120, 90, flightRed);
-				if(flag4==0)
-				iShowImage(enemyX, enemyY, 80, 70, enemy);
-				enemyMove();
-				if(fireX>=enemyX&&fireY>=enemyY&&fireX<=enemyX+80&&fireY<=enemyY+70)
-					{   
-						if(flag5==0)
-						{
-						flag4=1;
-						if(flag4==1){
-								iShowImage(fireX,fireY,100,80,destroy);
-
-								flag1=0;
-								iPauseTimer(enemyTime);
-						}
-						}
-						flag5=1;
-						
-				}
-				
-				
-
-				if(flag1==1)
-				{
-				iShowImage(fireX+40,fireY,40,40,fireball);
-				}
-				
+				mainGamePage();
+				gameRun = true;
 			
 				break;
 			//When it is 2, the about page is opened 
@@ -187,5 +163,32 @@ void changePagesInMenu(){
 			case 6:
 				exit(0);
 				break;
-		}
+	}
+}
+
+void mainGamePage()
+{
+	iShowImage(0, 0, 900, 600, newgamePage);
+	iShowImage(780,8,100, 30,backButton);
+	iShowImage(flightRedX, flightRedY, 120, 90, flightRed);
+	iShowImage(enemyX1,enemyY1,80,90,enemy);
+	iShowImage(enemyX2,enemyY2,80,90,enemy);
+	iShowImage(enemyX3,enemyY3,80,90,enemy);
+	iShowImage(stoneX1,stoneY1,20,25,stone);
+	iShowImage(stoneX2,stoneY2,20,25,stone);
+
+/*
+	if(fireX>=enemyX&&fireY>=enemyY&&fireX<=enemyX+80&&fireY<=enemyY+70)
+	{
+		enemySaw = false;
+		iShowImage(fireX,fireY,100,80,destroy);
+		bulletShow = false;				
+	}
+*/	if(bulletShow)
+	{
+		iShowImage(fireX,fireY,20,65,fireball);
+	}
+
+	
+
 }

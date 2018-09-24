@@ -35,4 +35,5 @@ void loadImages(){
 	enemy = iLoadImage("images/enemy.png");
 	fireball=iLoadImage("images/fireball.png");
 	destroy=iLoadImage("images/destroy.png");
+	stone = iLoadImage("images/stone.png");
 }

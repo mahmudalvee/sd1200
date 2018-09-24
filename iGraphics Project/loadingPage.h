@@ -32,8 +32,10 @@ void loading(){
 }
 
 //pauses all the timers
-void pauseTimers(){
+void pauseTimers()
+{
 	iPauseTimer(t);
 	iPauseTimer(k);
 	iPauseTimer(x);
 }
+

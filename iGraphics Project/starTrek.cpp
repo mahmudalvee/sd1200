@@ -47,7 +47,7 @@ void iMouseMove(int mx, int my)
 void iPassiveMouseMove(int mx, int my)
 {
 
-	//printf("%d %d\n", mx, my);
+	printf("x = %d , y = %d , loadImage = %d\n", mx, my,loadImage);
 	
 
 	//When it is in the main menu
@@ -77,19 +77,36 @@ void comingBullet();//go to enemy.h
 void iKeyboard(unsigned char key)
 {
 
- if(key == ' ')
-	{   
+	if(key == 'd' && flightRedX<=760)
+	{
+		flightRedX += flightRedMoveX;
+		if(!bulletShow)
+			fireX += flightRedMoveX;
+	}
+	else if( key == 'a' && flightRedX>=10)
+	{
+	    flightRedX -= flightRedMoveX;
+		if(!bulletShow)
+			fireX -= flightRedMoveX;
+	}
+	else if(key == 'w' && flightRedY<=465)
+	{
+		flightRedY += flightRedMoveY;
+		if(!bulletShow)
+			fireY += flightRedMoveY;
+	}
+	else if(key == 's' && flightRedY>=10)
+	{
+		flightRedY -= flightRedMoveY;
+		if(!bulletShow)
+			fireY -= flightRedMoveY;
+	}
+
+	if(key == ' ')
+	{  
 		
-		flag1=1;//flag1 is up 
-		if(flag2==1)
-		{
-			iResumeTimer(fireTime);
-		}
-		if(flag2==0)
-		{
-		fireTime=iSetTimer(30,comingBullet);//starting fire
-		flag2=1;
-		}
+		bulletShow = true;//flag1 is up 
+		
 		
 	}
 
@@ -106,30 +123,6 @@ GLUT_KEY_PAGE DOWN, GLUT_KEY_HOME, GLUT_KEY_END, GLUT_KEY_INSERT
 */
 void iSpecialKeyboard(unsigned char key)
 {
-	if(key==GLUT_KEY_UP)
-	{
-	fireX=flightRedY += flightRedMoveY;
-	}
-	else if(key==GLUT_KEY_DOWN)
-	{
-	fireX=flightRedY -= flightRedMoveY;
-	}
-	if(key==GLUT_KEY_LEFT)
-	{
-	fireX=flightRedX -= flightRedMoveX;
-	}
-	if(key==GLUT_KEY_RIGHT)
-	{
-	fireX=flightRedX += flightRedMoveX;
-	}
-
-
-
-
-
-
-
-
 
 }
 

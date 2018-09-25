@@ -1,3 +1,5 @@
+#ifndef MY_VARIABLES_H
+#define MY_VARIABLES_H
 
 int loadingImage;
 
@@ -82,13 +84,30 @@ int stoneY1 = 800;
 int stoneX2 = rand()%800;
 int stoneY2 = 900;
 
-int stone;
+int stone1;
+int stone2;
 
 //int flag1=0,flag2=0,flag3=0,flag4=0;
 bool enemySaw = true;  //flag4
 bool bulletShow = false; //flag1
 bool gameRun = false;
+bool bullet1 = false;
+bool bullet2 = false;
+bool bullet3 = false;
+bool bulletCheck1 = true;
+bool bulletCheck2 = true;
+bool bulletCheck3 = true;
+
 int flag2=0,flag3=0;
 int fireX=flightRedX+55,fireY=flightRedY+90;
 int bulletGo;
 int bulletCome;
+int bulletX [3] = { enemyX1+30 , enemyX2+30 , enemyX3+30 };
+int bulletY [3] = { enemyY1-40 , enemyY2-40 , enemyY3-40 };
+
+int power = 100;
+int score = 0;
+int healthX = rand()%800;;
+int healthY = 2000;
+int health;
+#endif

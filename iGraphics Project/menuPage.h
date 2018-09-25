@@ -170,12 +170,29 @@ void mainGamePage()
 {
 	iShowImage(0, 0, 900, 600, newgamePage);
 	iShowImage(780,8,100, 30,backButton);
+	iSetColor(255,255,255);
+	iFilledRectangle(860,480,20,100);
+	iSetColor(255,0,0);
+	iFilledRectangle(860,480,20,power);
+	char str[100];
+	sprintf(str,"%d",score);
+	iSetColor(255,255,255);
+	iText(10,570,"Score",GLUT_BITMAP_TIMES_ROMAN_24);
+	iText(30,540,str,GLUT_BITMAP_TIMES_ROMAN_24);
 	iShowImage(flightRedX, flightRedY, 120, 90, flightRed);
 	iShowImage(enemyX1,enemyY1,80,90,enemy);
 	iShowImage(enemyX2,enemyY2,80,90,enemy);
 	iShowImage(enemyX3,enemyY3,80,90,enemy);
-	iShowImage(stoneX1,stoneY1,20,25,stone);
-	iShowImage(stoneX2,stoneY2,20,25,stone);
+	iShowImage(stoneX1,stoneY1,35,40,stone1);
+	iShowImage(stoneX2,stoneY2,35,40,stone2);
+	iShowImage(healthX,healthY,35,40,health);
+
+	if(enemyY1 <=500)
+		iShowImage(bulletX[0],bulletY[0],10,50,bullet);
+	if(enemyY2 <=500)
+		iShowImage(bulletX[1],bulletY[1],10,50,bullet);
+	if(enemyY3 <=500)
+		iShowImage(bulletX[2],bulletY[2],10,50,bullet);
 
 /*
 	if(fireX>=enemyX&&fireY>=enemyY&&fireX<=enemyX+80&&fireY<=enemyY+70)
